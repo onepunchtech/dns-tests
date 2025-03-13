@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  bind:
+    image: ubuntu/bind9:edge
+    ports:
+      - "5301:53/tcp"
+      - "5301:53/udp"
+  unbound:
+    image: "mvance/unbound:latest"
+    ports:
+      - "5300:53/tcp"
+      - "5300:53/udp"
+    volumes:
+      - /home/whitehead/workspace/onepunch/dns-tests/unbound:/opt/unbound/etc/unbound/
